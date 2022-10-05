@@ -23,10 +23,12 @@ $ gcc SlidingTileGame.c -o SlidingTileGame
  Tiles can only slide, you're not allowed to directly pick them up and rearrange them.
 
 ## MOVEMENT-KEYS
-|Keys|Description|
-|---|---|
+|Keys|Description|Blank-Tile: Represented by [0]|
+|---|---|---|
 |<kbd>↑</kbd>|Move Blank-Tile UP|
-|<kbd>↓</kbd>|Move Blank Tile DOWN|
-|<kbd>←</kbd>|Move Blank Tile LEFT|
-|<kbd>→</kbd>|Move Blank Tile RIGHT|
+|<kbd>↓</kbd>|Move Blank-Tile DOWN|
+|<kbd>←</kbd>|Move Blank-Tile LEFT|
+|<kbd>→</kbd>|Move Blank-Tile RIGHT|
 
+## REFERENCES
+ https://en.wikipedia.org/wiki/Sliding_puzzle
