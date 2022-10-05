@@ -14,7 +14,7 @@ The pieces to be moved may consist of simple shapes, or they may be imprinted wi
 
 ## BUILD
  ```console
-$ gcc SlidingTileGame.c -o SlidingTileGame
+$ gcc SlidingTileGame.c RESOURCES-res.o ResourceVersion.o -o SlidingTileGame
 ```
 
 ## HOW-TO-PLAY

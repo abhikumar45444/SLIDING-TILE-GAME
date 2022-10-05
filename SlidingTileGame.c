@@ -47,14 +47,15 @@ int main()
     //win or lose
     if(isWin)
     {
-        printf("\t----- HURRAY YOU WON --------\n");
+        printf("\t\e[1;92m ----- HURRAY YOU WON -------- \e[0m\n");
     }
     else
     {
-        printf("\t----- YOU LOSE!TRY AGAIN :-( --------\n");
+        printf("\t\e[1;91m ----- YOU LOSE!TRY AGAIN :-( -------- \e[0m\n");
     }
      printf("\n\n\n\n");
-
+     printf("\t\t\e[1;93m \2 \2 thank you for playing....  \2 \2 \e[0m\n\n\n");
+     Sleep(5000);
      return 0;
 }
 
@@ -93,10 +94,10 @@ void Input()
     while(1)
     {
         fflush(stdin);
-        printf("\n  \e[1;94mPres \30  to move Blank-Tile \e[1;96m'UP'\n");
-        printf("  \e[1;94mPres \31  to move Blank-Tile \e[1;96m'DOWN'\n");
-        printf("  \e[1;94mPres <- to move Blank-Tile \e[1;96m'LEFT'\n");
-        printf("  \e[1;94mPres \32  to move Blank-Tile \e[1;96m'RIGHT'\n\n");
+        printf("\n  \e[1;94mPress \30  to move Blank-Tile \e[1;96m'UP'\n");
+        printf("  \e[1;94mPress \31  to move Blank-Tile \e[1;96m'DOWN'\n");
+        printf("  \e[1;94mPress <- to move Blank-Tile \e[1;96m'LEFT'\n");
+        printf("  \e[1;94mPress \32  to move Blank-Tile \e[1;96m'RIGHT'\n\n");
         printf("  \e[1;95mPress 'e' or 'E' to exit the game any time.\n");
         int exitButton = 0;
         exitButton = getch();
@@ -133,7 +134,8 @@ void Input()
             if (PlayerMove == 72)
             {
                 int tempi = i, tempj = j;
-                tempi--;
+                // tempi--;
+                tempi++;
                 temp = board[tempi][tempj];
                 board[tempi][tempj] = board[i][j];
                 board[i][j] = temp;
@@ -143,7 +145,8 @@ void Input()
             {
 
                 int tempi = i, tempj = j;
-                tempi++;
+                tempi--;
+                // tempi++;
                 temp = board[tempi][tempj];
                 board[tempi][tempj] = board[i][j];
                 board[i][j] = temp;
@@ -153,7 +156,8 @@ void Input()
             {
 
                 int tempi = i, tempj = j;
-                tempj--;
+                tempj++;
+                // tempj--;
                 temp = board[tempi][tempj];
                 board[tempi][tempj] = board[i][j];
                 board[i][j] = temp;
@@ -163,7 +167,8 @@ void Input()
             {
 
                 int tempi = i, tempj = j;
-                tempj++;
+                tempj--;
+                // tempj++;
                 temp = board[tempi][tempj];
                 board[tempi][tempj] = board[i][j];
                 board[i][j] = temp;
@@ -201,20 +206,27 @@ int ValidMove()
     //checking for player input if valid or not based on manipulating the index of tile
     if (PlayerMove == 72)
     {
-        i--;
+
+        i++;
+        // i--;
     }
     else if(PlayerMove == 80)
     {
-        i++;
+        i--;
+        // i++;
     }
     else if(PlayerMove == 75)
     {
-        j--;
+        j++;
+        // j--;
     }
     else if(PlayerMove == 77)
     {
-        j++;
+        j--;
+        // j++;
     }
+
+    printf("i = %d  j = %d\n", i, j);
 
     if((i >= 0 && i <= 3) && (j >= 0 && j <= 3))
     {
@@ -270,10 +282,10 @@ void RuleDisplay()
     printf("\t________________________________________________________________________________________\n");
     printf("\t|\t\t\t\t\t\t\t\t\t\t\t|\n");
     printf("\t|   \e[4;35m\e[4;32m1. You can move only 1 step at a time by ARROW key\e[0m\t\t\t\t        |\n");
-    printf("\t|\t    \e[1;94mPres \30  to move Blank-Tile \e[1;96m'UP'\e[0m\t\t\t\t\t\t|\n");
-    printf("\t|\t    \e[1;94mPres \31  to move Blank-Tile \e[1;96m'DOWN'\e[0m\t\t\t\t\t\t|\n");
-    printf("\t|\t    \e[1;94mPres <- to move Blank-Tile \e[1;96m'LEFT'\e[0m\t\t\t\t\t\t|\n");
-    printf("\t|\t    \e[1;94mPres \32  to move Blank-Tile \e[1;96m'RIGHT'\e[0m\t\t\t\t\t\t|\n\t|\t\t\t\t\t\t\t\t\t\t\t|");
+    printf("\t|\t    \e[1;94mPress \30  to move Blank-Tile \e[1;96m'UP'\e[0m\t\t\t\t\t\t|\n");
+    printf("\t|\t    \e[1;94mPress \31  to move Blank-Tile \e[1;96m'DOWN'\e[0m\t\t\t\t\t\t|\n");
+    printf("\t|\t    \e[1;94mPress <- to move Blank-Tile \e[1;96m'LEFT'\e[0m\t\t\t\t\t\t|\n");
+    printf("\t|\t    \e[1;94mPress \32  to move Blank-Tile \e[1;96m'RIGHT'\e[0m\t\t\t\t\t\t|\n\t|\t\t\t\t\t\t\t\t\t\t\t|");
     printf("\n\t|    \e[4;32m2. You can move number at empty position only\e[0m\t\t\t\t\t|\n");
     printf("\t|    \e[4;32m3. For each valid move : you total number of move will decreased by 1\e[0m\t        |\n");
     printf("\t|    \e[4;32m4. Winning situation : number in a 4x4 matrix should be in order from 1 to 15\e[0m      |\n");
