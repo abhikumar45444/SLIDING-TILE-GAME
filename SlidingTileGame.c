@@ -39,7 +39,7 @@ int main()
         Input();
         isWin = CheckWin();
         if(isWin)
-        {
+        {  
             break;
         }
     } while (moves);
@@ -47,15 +47,17 @@ int main()
     //win or lose
     if(isWin)
     {
-        printf("\t\e[1;92m ----- HURRAY YOU WON -------- \e[0m\n");
+        Display();
+        printf("\n\n\t\t\e[1;92m ----- HURRAY YOU WON -------- \e[0m\n");
     }
     else
     {
-        printf("\t\e[1;91m ----- YOU LOSE!TRY AGAIN :-( -------- \e[0m\n");
+        Display();
+        printf("\n\n\t\t\e[1;91m ----- YOU LOSE! TRY AGAIN :-( -------- \e[0m\n");
     }
      printf("\n\n\n\n");
      printf("\t\t\e[1;93m \2 \2 thank you for playing....  \2 \2 \e[0m\n\n\n");
-     Sleep(5000);
+     Sleep(8000);
      return 0;
 }
 
@@ -65,11 +67,11 @@ void Display()
     printf("\n\n\tHello :\e[0;93m %s \2 \2 \e[0m \n", playerName);
     if(moves > 100)
     {
-        printf("\n\t\e[1;92mYour reamining moves : %d\e[0m\n\n", moves);
+        printf("\n\t\e[1;92mYour remaining moves : %d\e[0m\n\n", moves);
     }
     else
     {
-        printf("\n\t\e[1;91mYour reamining moves : %d\e[0m\n\n", moves);
+        printf("\n\t\e[1;91mYour remaining moves : %d\e[0m\n\n", moves);
     }
     // printf("\t\e[4;32mRemaing Moves:\e[0m \e[1;92m%d\e[0m\n\n", moves);
     printf("  \e[0;35m__________________________________________\e[0m \n");
@@ -107,7 +109,7 @@ void Input()
             printf("\n\n\n\tThank You For Playing This Game, I Hope You Enjoyed It .......\n");
             printf("\n\n\n\tSee ya' Later .......\n");
             printf("\n\n\t\e[1;93mExiting The Game .......\e[0m\n\n\n");
-            Sleep(5000);
+            Sleep(7000);
             exit(EXIT_SUCCESS);
         }
         PlayerMove = getch(); // there are 2 getch() because arrow keys are special it sends 2 signals
@@ -180,7 +182,7 @@ void Input()
         else //if pressed for invalid location
         {
             Display();
-            printf("\e[1;91mInvalid Move!!\e[0m\n");
+            printf("     \e[1;91mInvalid Move!!\e[0m\n");
         }
     }  
 }
@@ -226,7 +228,6 @@ int ValidMove()
         // j++;
     }
 
-    printf("i = %d  j = %d\n", i, j);
 
     if((i >= 0 && i <= 3) && (j >= 0 && j <= 3))
     {
