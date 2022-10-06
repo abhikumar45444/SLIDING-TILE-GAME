@@ -9,10 +9,10 @@
 A sliding puzzle, sliding block puzzle, or sliding tile puzzle is a combination puzzle that challenges a player to slide (frequently flat) pieces along certain routes (usually on a board) to establish a certain end-configuration.
 The pieces to be moved may consist of simple shapes, or they may be imprinted with colours, patterns, sections of a larger picture (like a jigsaw puzzle), numbers, or letters.
 
-## QUICK-START
- Run the SlidingTileGame.exe file to play the game.
+## QUICK-START (WINDOWS)
+ Run the SlidingTileGame.exe file to play the game. 
 
-## BUILD
+## BUILD (WINDOWS)
  ```console
 $ gcc SlidingTileGame.c RESOURCES-res.o ResourceVersion.o -o SlidingTileGame
 ```
@@ -32,3 +32,4 @@ $ gcc SlidingTileGame.c RESOURCES-res.o ResourceVersion.o -o SlidingTileGame
 
 ## REFERENCES
  https://en.wikipedia.org/wiki/Sliding_puzzle
+ https://stackoverflow.com/questions/23285326/non-repeating-random-number-generator-in-c

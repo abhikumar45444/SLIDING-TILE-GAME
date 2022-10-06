@@ -2,17 +2,18 @@
 #include<stdlib.h>
 #include<conio.h>
 #include<windows.h>
+#include<time.h>
 
 //       index ->  0  1  2  3  4  5  6  7  8  9   10  11  12  13  14  15     
-int board[4][4] = {3, 2, 4, 1, 7, 5, 6, 8, 14, 12, 13, 15, 9, 10, 11, 0 };
-
+//int board[4][4] = {3, 2, 4, 1, 7, 5, 6, 8, 14, 12, 13, 15, 9, 10, 11, 0 };
+int board[4][4] = { [3][3]= 0 };
 // to match if player wins
 int WinningBoard[4][4] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 0};
+
 short int PlayerMove = 0;
-
 int moves = 400;
-
 char playerName[10] = {0};
+
 
 //Board display
 void Display();
@@ -24,10 +25,15 @@ int ValidMove();
 int CheckWin();
 void PlayerNameInput();
 void RuleDisplay();
+//This function will assign non - repeating random values between range [1-15] in board 
+void RandomGen();
+
 
 int main()
 {
     int isWin = 0;
+
+    RandomGen();
 
     RuleDisplay();
     PlayerNameInput();
@@ -324,4 +330,54 @@ void PlayerNameInput()
     printf("\t \e[1;94m*********************   \e[1;91m\2  \2  Now, Let's Begin The Game  \2  \2 \e[0m  \e[1;94m*************************\e[0m\n");
     printf("\n\n\n\n \t\e[0;96m Press Any Key To Start The Game ..... ");
     getch();
+}
+
+
+void RandomGen()
+{
+    int randArray[15] = {0};
+    int x, p;
+    int count;
+    int i=0;
+    int upper = 15, lower = 1; //range [1-15]
+    srand(time(NULL));
+
+    for(count = 0; count < 15; count++)
+    {
+        randArray[count] = (rand() % (upper - lower + 1)) + lower;
+    }
+
+    while(i < 15)
+    {
+        int r = (rand() % (upper - lower + 1)) + lower;
+
+        for (x = 0; x < i; x++)
+        {
+            if(randArray[x] == r){
+                break;
+            }
+        }
+        if(x==i)
+        {
+            randArray[i++]=r;
+        }
+    }
+
+    int flag = 0, k = 0;
+    for (int i = 0; i < 4; i++)
+    {
+        for (int j = 0; j < 4; j++)
+        {
+            if (i == 3 && j == 3)
+            {
+                flag = 1;
+                break;
+            }
+            else
+            {
+                board[i][j] = randArray[k++];
+            }
+        }   
+        if(flag) break;
+    }  
 }
